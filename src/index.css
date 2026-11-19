@@ -1,0 +1,88 @@
+@import "@fontsource-variable/geist";
+@import "@fontsource-variable/geist-mono";
+@import "tailwindcss";
+@config "../tailwind.config.js";
+
+@theme inline {
+  --font-sans: "Geist Variable", "Segoe UI", sans-serif;
+  --font-mono: "Geist Mono Variable", Consolas, monospace;
+  --color-canvas: var(--canvas);
+  --color-surface: var(--surface);
+  --color-raised: var(--surface-raised);
+  --color-foreground: var(--text);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-control-line: var(--control-line);
+  --color-accent: var(--accent);
+  --color-accent-soft: var(--accent-soft);
+  --color-accent-ink: var(--accent-ink);
+  --color-positive: var(--positive);
+  --color-danger: var(--danger);
+}
+
+@layer base {
+  :root {
+    --canvas: #f4f6f6;
+    --surface: #ffffff;
+    --surface-raised: #eaf0ee;
+    --text: #15251f;
+    --muted: #4d625a;
+    --line: #cfd9d5;
+    --control-line: #788b83;
+    --accent: #006b4e;
+    --accent-soft: #d9f3e9;
+    --accent-ink: #ffffff;
+    --positive: #176b4f;
+    --danger: #ad3045;
+    color-scheme: light;
+    background: var(--canvas);
+    color: var(--text);
+    font-family: var(--font-sans);
+    font-synthesis: none;
+  }
+
+  :root.dark {
+    --canvas: #060a12;
+    --surface: #0d131f;
+    --surface-raised: #17212e;
+    --text: #f1f5f9;
+    --muted: #a1b0bf;
+    --line: #273342;
+    --control-line: #647789;
+    --accent: #79e8b9;
+    --accent-soft: #112d29;
+    --accent-ink: #082319;
+    --positive: #79e8b9;
+    --danger: #ff93a1;
+    color-scheme: dark;
+  }
+
+  body {
+    min-width: 0;
+    min-height: 100dvh;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+  }
+
+  ::selection {
+    color: var(--accent-ink);
+    background: var(--accent);
+  }
+}
+
+@keyframes sidebar-enter {
+  from { transform: translateX(-100%); }
+  to { transform: translateX(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
